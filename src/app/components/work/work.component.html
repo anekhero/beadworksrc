@@ -1,0 +1,43 @@
+<div class="work" [ngStyle]="{'width.px':work.beadWidth*scale*work.columns,'height.px':work.beadHeight*scale*work.rows}">
+    <div class="work-row" [ngStyle]="{'width.px':work.beadWidth*scale*work.columns,'height.px':work.beadHeight*scale}" *ngFor="let r of work.beads">
+        <div
+                *ngFor="let s of r"
+                class="work-cell"
+                [ngClass]="{selected: s.selected}"
+                [ngStyle]="{'width.px':work.beadWidth*scale, 'background-color': s.bead ? s.bead.color : 'transparent'}"
+                (click)="onBeadClick(s)"></div>
+    </div>
+</div>
+<style>
+    .work {
+        border-left: solid rgba(128, 128, 128, 0.5) 1px;
+        border-bottom: solid rgba(128, 128, 128, 0.5) 1px;
+        box-sizing: border-box;
+
+        background-image: linear-gradient(45deg, #d7d7d7 25%, transparent 25%), linear-gradient(-45deg, #d7d7d7 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d7d7d7 75%), linear-gradient(-45deg, transparent 75%, #d7d7d7 75%);
+        background-size: 16px 16px;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+    }
+    .work-row {
+        height: 100px;
+        width: 100%;
+        /*border-top: solid rgba(0,0,0,0.5) 1px;*/
+        box-sizing: border-box;
+    }
+    .work-cell {
+        display: inline-block;
+        width: 50px;
+        height: inherit;
+        border-right: solid rgba(128, 128, 128, 0.5) 1px;
+        border-top: solid rgba(128, 128, 128, 0.5) 1px;
+        box-sizing: border-box;
+    }
+    .work-cell.selected:after {
+        position: absolute;
+        content: '';
+        border: rgba(255,255,0,0.5) 4px solid;
+        width: inherit;
+        height: inherit;
+        box-sizing: border-box;
+    }
+</style>

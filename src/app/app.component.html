@@ -1,0 +1,46 @@
+<mat-toolbar class="position-fixed">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="createWork()">
+            <mat-icon>add</mat-icon>
+            <span>Add</span>
+        </button>
+        <button mat-menu-item disabled>
+            <mat-icon>list</mat-icon>
+            <span>List</span>
+        </button>
+        <button mat-menu-item disabled>
+            <mat-icon>archive</mat-icon>
+            <span>Download all</span>
+        </button>
+        <button mat-menu-item disabled>
+            <mat-icon>unarchive</mat-icon>
+            <span>Upload all</span>
+        </button>
+    </mat-menu>
+    <span>Bread Work</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button (click)="selectAll()">
+        <mat-icon>check_box</mat-icon>
+    </button>
+    <button mat-icon-button (click)="unselectAll()">
+        <mat-icon>check_box_outline_blank</mat-icon>
+    </button>
+    <button mat-icon-button (click)="fill()" [ngStyle]="{color: color}">
+        <mat-icon>format_paint</mat-icon>
+    </button>
+    <button mat-icon-button (click)="changeColor()">
+        <mat-icon>color_lens</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onZoomOut()">
+        <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onZoomIn()">
+        <mat-icon>zoom_in</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="pre-content"></div>
+
+<app-work *ngIf="work" [work]="work" [scale]="scale"></app-work>

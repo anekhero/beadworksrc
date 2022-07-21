@@ -1,0 +1,19 @@
+.position-fixed {
+  position: fixed
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+@media screen and (max-width: 599px) {
+  .pre-content {
+    height: 56px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .pre-content {
+    height: 64px;
+  }
+}
